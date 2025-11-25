@@ -17,20 +17,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validasi sederhana
     if ($title === '') {
-        $errors[] = 'Judul wajib diisi.';
+    $errors[] = 'Judul wajib diisi.';
     }
     if ($author === '') {
-        $errors[] = 'Penulis wajib diisi.';
+    $errors[] = 'Penulis wajib diisi.';
     }
-    if ($year !== '' && !ctype_digit($year)) {
-        $errors[] = 'Tahun harus berupa angka.';
+    if ($year === '') {
+    $errors[] = 'Tahun terbit wajib diisi.';
+    } elseif (!ctype_digit($year)) {
+    $errors[] = 'Tahun harus berupa angka.';
     }
-    if ($pages !== '' && !ctype_digit($pages)) {
-        $errors[] = 'Jumlah halaman harus berupa angka.';
+
+    if ($category === '') {
+    $errors[] = 'Kategori wajib diisi.';
     }
-    if ($stock !== '' && !ctype_digit($stock)) {
-        $errors[] = 'Stok harus berupa angka.';
+
+    if ($pages === '') {
+     $errors[] = 'Jumlah halaman wajib diisi.';
+    } elseif (!ctype_digit($pages)) {
+     $errors[] = 'Jumlah halaman harus berupa angka.';
     }
+
 
     // Upload cover (opsional)
     $coverName = null;
@@ -139,13 +146,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="form-group">
-                <label for="year">Tahun Terbit</label>
+                <label for="year">Tahun Terbit <span class="required">*</span></label>
                 <input type="number" id="year" name="year" min="0" max="<?php echo date('Y') + 1; ?>"
                        value="<?php echo e($year); ?>">
             </div>
 
             <div class="form-group">
-                <label for="category">Kategori</label>
+                <label for="category">Kategori <span class="required">*</span></label>
                 <input type="text" id="category" name="category"
                        placeholder="Misal: Pemrograman, Jaringan, Novel"
                        value="<?php echo e($category); ?>">
@@ -158,7 +165,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="form-group">
-                <label for="pages">Jumlah Halaman</label>
+                <label for="pages">Jumlah Halaman <span class="required">*</span></label>
                 <input type="number" id="pages" name="pages" min="0"
                        value="<?php echo e($pages); ?>">
             </div>

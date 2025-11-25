@@ -178,13 +178,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="form-group">
-                <label for="year">Tahun Terbit</label>
+                <label for="year">Tahun Terbit <span class="required">*</span></label>
                 <input type="number" id="year" name="year" min="0" max="<?php echo date('Y') + 1; ?>"
                        value="<?php echo e((string)$year); ?>">
             </div>
 
             <div class="form-group">
-                <label for="category">Kategori</label>
+                <label for="category">Kategori <span class="required">*</span></label>
                 <input type="text" id="category" name="category"
                        value="<?php echo e((string)$category); ?>">
             </div>
@@ -196,7 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="form-group">
-                <label for="pages">Jumlah Halaman</label>
+                <label for="pages">Jumlah Halaman <span class="required">*</span></label>
                 <input type="number" id="pages" name="pages" min="0"
                        value="<?php echo e((string)$pages); ?>">
             </div>

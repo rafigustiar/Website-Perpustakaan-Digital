@@ -1,11 +1,11 @@
 <?php
 // db.php
 // Konfigurasi koneksi database MySQL (Laragon)
-const DB_HOST = '127.0.0.1';     // pakai 127.0.0.1 di Laragon
-const DB_PORT = '3306';
+const DB_HOST = 'localhost';    
+const DB_PORT = '8889';         // PORT WAJIB 8889 DI MAMP
 const DB_NAME = 'perpustakaan_db';
 const DB_USER = 'root';
-const DB_PASS = '';              // default Laragon: kosong (tidak ada password)
+const DB_PASS = 'root';            // default Laragon: kosong (tidak ada password)
 
 /**
  * Mengembalikan instance PDO (singleton).
