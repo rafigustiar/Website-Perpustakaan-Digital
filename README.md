@@ -84,5 +84,6 @@ http://localhost:8888/perpustakaan-digital/
 <img width="1512" height="860" alt="Screenshot 2025-11-25 at 22 56 48" src="https://github.com/user-attachments/assets/f121974f-47a9-4100-a38b-35db20879d74" />
 <img width="1512" height="861" alt="Screenshot 2025-11-25 at 22 57 42" src="https://github.com/user-attachments/assets/7914e12c-9935-4f56-a01f-a577dfe538c9" />
 <img width="1512" height="859" alt="Screenshot 2025-11-25 at 22 57 57" src="https://github.com/user-attachments/assets/c957b07b-7d0d-44c1-9f6d-0e3eaced9758" />
+<img width="1512" height="858" alt="Screenshot 2025-11-25 at 23 05 46" src="https://github.com/user-attachments/assets/5fa2538a-6263-4fc2-b526-2890861d1e40" />
 
 
