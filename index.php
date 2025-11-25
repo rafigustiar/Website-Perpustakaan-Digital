@@ -6,14 +6,21 @@ $pdo = getPDO();
 // Pencarian
 $q = $_GET['q'] ?? '';
 if ($q !== '') {
+    $like = '%' . $q . '%';
+
     $stmt = $pdo->prepare("
         SELECT * FROM books
-        WHERE title LIKE :q
-           OR author LIKE :q
-           OR category LIKE :q
+        WHERE title   LIKE :title
+           OR author  LIKE :author
+           OR category LIKE :category
         ORDER BY id DESC
     ");
-    $stmt->execute([':q' => '%' . $q . '%']);
+
+    $stmt->execute([
+        ':title'    => $like,
+        ':author'   => $like,
+        ':category' => $like,
+    ]);
 } else {
     $stmt = $pdo->query("SELECT * FROM books ORDER BY id DESC");
 }
@@ -73,7 +80,6 @@ $error = $_GET['error'] ?? '';
             <table class="table">
                 <thead>
                 <tr>
-                    <!-- Ubah label dari ID ke No -->
                     <th>No</th>
                     <th>Cover</th>
                     <th>Judul</th>
@@ -93,10 +99,9 @@ $error = $_GET['error'] ?? '';
                         </td>
                     </tr>
                 <?php else: ?>
-                    <?php $no = 1; // counter nomor urut tampilan ?>
+                    <?php $no = 1; ?>
                     <?php foreach ($books as $book): ?>
                         <tr>
-                            <!-- Tampilkan nomor urut, bukan ID database -->
                             <td><?php echo $no++; ?></td>
                             <td>
                                 <?php if (!empty($book['cover'])): ?>
